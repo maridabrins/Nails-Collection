@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "@expo-google-fonts/alex-brush": "^0.3.0",
+    "@expo/metro-runtime": "~5.0.4",
+    "axios": "^1.9.0",
     "expo": "~53.0.9",
     "expo-font": "~13.3.1",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-web": "^0.20.0",
+    "tunnel": "^0.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

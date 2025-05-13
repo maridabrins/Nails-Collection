@@ -1,30 +1,36 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function Header() {
+  const [fontsLoaded] = useFonts({
+    'AlexBrush': require('../fonts/AlexBrush-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
-      <Text style={styles.title}>Minha Coleção</Text>
+      <Text style={styles.title}>Nails Collection</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#800080',
-    flexDirection: 'row',
+    backgroundColor: '#D28BFF',
+    paddingTop: 50,
+    padding: 20,
     alignItems: 'center',
-    padding: 16,
-  },
-  logo: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
+    justifyContent: 'center',
   },
   title: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
+    color: '#FCF0FF',
+    fontSize: 40,
+    fontFamily: 'AlexBrush',
+    fontWeight: '500',
+    textAlign: 'center',
   },
 });

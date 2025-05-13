@@ -8,8 +8,8 @@ import {
   Image,
   Modal,
   StyleSheet,
-  SafeAreaView,
 } from 'react-native';
+import EsmalteCard from '../components/esmalteCard';
 
 export default function HomeScreen() {
   const [esmaltes, setEsmaltes] = useState([]);
@@ -41,17 +41,8 @@ export default function HomeScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header com logo e título */}
-      <View style={styles.header}>
-        <Image
-          source={require('../assets/logo.png')}
-          style={styles.logo}
-        />
-        <Text style={styles.headerTitle}>Nails Collection</Text>
-      </View>
-
-      {/* Barra de busca com lupa */}
+    <View style={styles.container}>
+      {/* Barra de busca */}
       <View style={styles.searchContainer}>
         <Image
           source={require('../assets/lupa.png')}
@@ -65,11 +56,6 @@ export default function HomeScreen() {
           style={styles.searchInput}
         />
       </View>
-
-      {/* Texto Minha Coleção */}
-      <Text style={{ fontFamily: 'AlexBrush_400Regular', fontSize: 32, color: 'white' }}>
-  Nails Collection
-</Text>
 
       {/* Botão adicionar esmalte */}
       <TouchableOpacity
@@ -85,44 +71,28 @@ export default function HomeScreen() {
 
       {/* Lista de esmaltes */}
       <FlatList
-        data={esmaltes}
+        data={esmaltes.filter(e =>
+          e.nome.toLowerCase().includes(busca.toLowerCase())
+        )}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image source={{ uri: item.imagem }} style={styles.imagem} />
-            <Text style={styles.nome}>{item.nome}</Text>
-            <Text style={styles.marca}>{item.marca}</Text>
-            <Text style={styles.cor}>{item.cor}</Text>
-            <View style={styles.icones}>
-              <TouchableOpacity
-                onPress={() => {
-                  setModoEdicao(true);
-                  setEsmalteAtual(item);
-                  setModalVisivel(true);
-                }}
-              >
-                <Image
-                  source={require('../assets/edit.png')}
-                  style={styles.icon}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  setEsmalteAtual(item);
-                  setConfirmarDelete(true);
-                }}
-              >
-                <Image
-                  source={require('../assets/delete.png')}
-                  style={styles.icon}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
+          <EsmalteCard
+            esmalte={item}
+            onEdit={item => {
+              setModoEdicao(true);
+              setEsmalteAtual(item);
+              setModalVisivel(true);
+            }}
+            onDelete={item => {
+              setEsmalteAtual(item);
+              setConfirmarDelete(true);
+            }}
+          />
         )}
+        contentContainerStyle={styles.listaContainer}
       />
 
-      {/* Modal criar/editar */}
+      {/* Modal de criação/edição */}
       <Modal visible={modalVisivel} animationType="slide">
         <View style={styles.modal}>
           <TextInput
@@ -182,7 +152,7 @@ export default function HomeScreen() {
           </View>
         </View>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -191,30 +161,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F3E5F5',
   },
-  header: {
-    backgroundColor: '#6A1B9A',
-    padding: 16,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
-  },
-  headerTitle: {
-    color: '#FFF',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
   searchContainer: {
     flexDirection: 'row',
     margin: 12,
     backgroundColor: '#FFF',
-    borderRadius: 8,
+    borderRadius: 35,
     paddingHorizontal: 10,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#E0B0FF',
   },
   searchIcon: {
     width: 18,
@@ -225,13 +180,6 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     height: 36,
-  },
-  collectionTitle: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginVertical: 8,
-    fontWeight: 'bold',
-    color: '#4A148C',
   },
   addButton: {
     backgroundColor: '#BA68C8',
@@ -246,39 +194,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
-  card: {
-    backgroundColor: '#FFF',
-    padding: 10,
-    margin: 8,
-    borderRadius: 6,
+  listaContainer: {
+    justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#DDD',
-  },
-  imagem: {
-    width: 70,
-    height: 110,
-    resizeMode: 'contain',
-    marginBottom: 5,
-  },
-  nome: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  marca: {
-    fontSize: 14,
-  },
-  cor: {
-    fontSize: 14,
-    marginBottom: 5,
-  },
-  icones: {
-    flexDirection: 'row',
-    gap: 16,
-  },
-  icon: {
-    width: 22,
-    height: 22,
+    paddingBottom: 10,
   },
   modal: {
     flex: 1,
@@ -296,7 +215,7 @@ const styles = StyleSheet.create({
   modalBotoes: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: 70,
   },
   cancelar: {
     color: '#999',
