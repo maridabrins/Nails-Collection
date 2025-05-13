@@ -107,6 +107,5 @@ Mariana Dabrins</a>
 
 Este projeto esta sobe a licença [MIT](./LICENSE).
 
-Feito por Mariana Dabrins👋🏽 
 
 
