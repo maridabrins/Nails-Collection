@@ -52,4 +52,34 @@ public class ColecaoService {
 	public void deletar(Long id) {
 		colecaoRepository.deleteById(id);
 	}
+	
+
+    public List<ColecaoDTO> buscarPorNome(String nome) {
+        return colecaoRepository.findByNomeContainingIgnoreCase(nome)
+                   .stream()
+                   .map(ColecaoDTO::new)
+                   .toList();
+    }
+
+    public List<ColecaoDTO> buscarPorMarca(String marca) {
+        return colecaoRepository.findByMarcaContainingIgnoreCase(marca)
+                   .stream()
+                   .map(ColecaoDTO::new)
+                   .toList();
+    }
+
+    public List<ColecaoDTO> buscarPorCor(String cor) {
+        return colecaoRepository.findByCorContainingIgnoreCase(cor)
+                   .stream()
+                   .map(ColecaoDTO::new)
+                   .toList();
+    }
+
+    public List<ColecaoDTO> buscarPorTudo(String termo) {
+        return colecaoRepository.searchAllFields(termo)
+                   .stream()
+                   .map(ColecaoDTO::new)
+                   .toList();
+    }
 }
+
