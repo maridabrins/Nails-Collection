@@ -20,5 +20,8 @@ public class ColecaoService {
 		return lista.stream().map(x-> new ColecaoDTO(x)).toList();
 	}
 
-
+	public ColecaoDTO buscarPorId(Long id) {
+		Colecao entity = colecaoRepository.findById(id).get();
+		return new ColecaoDTO(entity);
+	}
 }
