@@ -1,8 +1,12 @@
 package com.crud.nails.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.crud.nails.dto.ColecaoDTO;
+import com.crud.nails.entities.Colecao;
 import com.crud.nails.repositories.ColecaoRepository;
 
 @Service
@@ -11,6 +15,10 @@ public class ColecaoService {
 	@Autowired
 	ColecaoRepository colecaoRepository;
 	
-	public List<ColecaoDTO> b
+	public List<ColecaoDTO> buscarTodos(){
+		List<Colecao> lista = colecaoRepository.findAll();
+		return lista.stream().map(x-> new ColecaoDTO(x)).toList();
+	}
+
 
 }
