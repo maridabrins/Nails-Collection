@@ -48,4 +48,8 @@ public class ColecaoService {
 		entity = colecaoRepository.save(entity);
 		return new ColecaoDTO(entity);
 	}
+	
+	public void deletar(Long id) {
+		colecaoRepository.deleteById(id);
+	}
 }
