@@ -36,4 +36,16 @@ public class ColecaoService {
 		return new ColecaoDTO(entity);
 		
 	}
+	
+	public ColecaoDTO editar(Long id, ColecaoDTO dto) {
+		Colecao entity = colecaoRepository.getReferenceById(id);
+		
+		entity.setCor(dto.getCor());
+		entity.setNome(dto.getNome());
+		entity.setMarca(dto.getMarca());
+		entity.setImgUrl(dto.getImgUrl());
+		
+		entity = colecaoRepository.save(entity);
+		return new ColecaoDTO(entity);
+	}
 }
