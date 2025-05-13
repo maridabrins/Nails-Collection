@@ -11,8 +11,10 @@
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-rotas-da-api">Rotas</a> • 
+ <a href="#-observacoes">Observações</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-autor">Autor</a> • 
+ <a href="#-autores">Autores</a> • 
  <a href="#-licença">Licença</a>
 </p>
 
@@ -124,6 +126,10 @@ Nails Collection é uma API Full Stack desenvolvida em React Native, Java e MySQ
 | `PUT`       | `/colecao/editar/{id}`     | Atualiza esmalte existente                      |
 | `DELETE`    | `/colecao/excluir/{id}`    | Deleta esmalte pelo ID                          |
 
+## 📌 Observações
+
+- Para testar as rotas você pode usar o Swagger (se configurado), Postman ou Insomnia.  
+- Certifique-se de que o back-end esteja rodando **antes de iniciar o front-end**.
 
 ## 🛠 Tecnologias
 
@@ -134,6 +140,7 @@ Nails Collection é uma API Full Stack desenvolvida em React Native, Java e MySQ
  - #### 🎲 **Banco de dados** ([MySQL](https://www.mysql.com/))
 
  - #### 📃 **Back-end** ([Java](https://www.java.com/pt-BR/))
+
 
 ## ⚙ Ferramentas: 
 
