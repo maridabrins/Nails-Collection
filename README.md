@@ -51,18 +51,89 @@ Nails Collection é uma API Full Stack desenvolvida em React Native, Java e MySQ
 
 <!-- MODELO DE COMO EXECUTAR O PROJETO -->
 ## 🚀 Como executar o projeto
-1 - Baixar o Projeto (git clone)  <br>
-`git clone https://github.com/maridabrins/Nails-Collection.git`
 
-2 - Abrir a pasta em um editor de código <br>
-`cd Nails-Colletion`
+### Pré-requisitos
 
-3- Acessar o index.html para visualizar o contéudo
+- Java 21 ou superior   
+- MySQL Server rodando  
+- Yarn ou npm  
+- Expo CLI 
 
-### Ou acesse por aqui
-Você também pode acessar clicando nesse link do Github Pages:
+### 🔧 Back-end (Spring Boot)
 
-- [NailsColletion]()
+1. Clone o projeto:
+
+   ```bash
+   git clone https://github.com/seu-usuario/nails-collection.git
+   cd nails-collection
+   ```
+
+2. Configure o banco de dados em `src/main/resources/application.properties`:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/nails_db
+   spring.datasource.username=seu_usuario
+   spring.datasource.password=sua_senha
+   spring.jpa.hibernate.ddl-auto=update
+   ```
+
+3. Rode a aplicação:
+
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+4. A API estará rodando em `http://localhost:8080`
+
+---
+
+### 📱 Front-end Mobile (React Native)
+
+1. Acesse a pasta `mobile`:
+
+   ```bash
+   cd mobile
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. Inicie o aplicativo:
+
+   - Usando **Expo**:
+
+     ```bash
+     npx expo start
+     ```
+
+
+
+## 📡 Rotas da API
+
+| Método HTTP | Endpoint                   | Descrição                                        |
+|-------------|----------------------------|--------------------------------------------------|
+| `GET`       | `/colecao`                 | Lista todos os esmaltes                         |
+| `GET`       | `/colecao/{id}`            | Busca esmalte por ID                            |
+| `GET`       | `/colecao/search?q=termo`  | Busca por nome, marca ou cor                    |
+| `POST`      | `/colecao/criar`           | Cria um novo esmalte                            |
+| `PUT`       | `/colecao/editar/{id}`     | Atualiza esmalte existente                      |
+| `DELETE`    | `/colecao/excluir/{id}`    | Deleta esmalte pelo ID                          |
+
+
+## 🛠 Tecnologias
+
+-  #### 🖼 **Prototipo** ([Figma](https://www.figma.com/))
+
+ - #### 📲 **Front-End**  ([HTML](https://html.com/)) 
+
+ - #### 🎲 **Banco de dados** ([MySQL](https://www.mysql.com/))
+
+ - #### 📃 **Back-end** ([Java](https://www.java.com/pt-BR/))
 
 ## ⚙ Ferramentas: 
 
@@ -72,6 +143,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?logo=visualstudiocode&logoColor=white&style=for-the-badge" height="40" alt="vscode logo" />
   <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" height="40" alt="git logo" />
   <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&style=for-the-badge" height="40" alt="github logo" />
+ <img src="https://img.shields.io/badge/Eclipse IDE-2C2255?logo=eclipseide&logoColor=white&style=for-the-badge" height="40" alt="eclipseide logo"  />
 </div>
 
 <!-- MODELO DE COMO CONTRIBUIR PARA O PROJETO -->
@@ -81,6 +153,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
 3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`
 4. Envie as suas alterações: `git push origin my-feature`
+
+
 
 
 <!-- ---------------------------------------------------------------------- -->
