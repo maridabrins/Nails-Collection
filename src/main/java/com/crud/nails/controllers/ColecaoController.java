@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +29,12 @@ public class ColecaoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<ColecaoDTO> buscarPorId(@PathVariable Long id){
 		ColecaoDTO dto = colecaoService.buscarPorId(id);
+		return ResponseEntity.ok(dto);
+	}
+	
+	@PostMapping("/criar")
+	public ResponseEntity<ColecaoDTO> criarNovo (@RequestBody ColecaoDTO dto){
+		dto = colecaoService.criarNovo(dto);
 		return ResponseEntity.ok(dto);
 	}
 	

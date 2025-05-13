@@ -24,4 +24,16 @@ public class ColecaoService {
 		Colecao entity = colecaoRepository.findById(id).get();
 		return new ColecaoDTO(entity);
 	}
+	
+	public ColecaoDTO criarNovo(ColecaoDTO dto) {
+		Colecao entity = new Colecao();
+		entity.setCor(dto.getCor());
+		entity.setNome(dto.getNome());
+		entity.setMarca(dto.getMarca());
+		entity.setImgUrl(dto.getImgUrl());
+		
+		entity = colecaoRepository.save(entity);
+		return new ColecaoDTO(entity);
+		
+	}
 }
