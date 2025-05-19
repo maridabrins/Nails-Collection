@@ -7,32 +7,17 @@
 
 <!-- MODELO MENU DE NAVEGAÇÃO -->
 <p align="center">
- <a href="#-descrição-do-entregável">Descrição do Entregável</a> •
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-rotas-da-api">Rotas</a> • 
- <a href="#-observacoes">Observações</a> • 
+ <a href="#-observações">Observações</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
  <a href="#-licença">Licença</a>
 </p>
 
 <!-- ---------------------------------------------------------------------- -->
-
-<!-- MODELO DE DESCRIÇÃO -->
-## 📄 Descrição do entregável
-
-<!-- EXEMPLO DE DESCRIÇÃO DE UM PROJETO: -->
-- src
-  - style
-    - global.css
-    - style.css
-  - assets
-    - images
-
-- index.html
-
 
 <!-- MODELO DESCRIÇÃO SOBRE O PROJETO: -->
 ## 💻 Sobre o projeto
