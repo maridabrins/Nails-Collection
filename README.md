@@ -1,6 +1,6 @@
 
 <h1 align="center"> 
-	  🚧 Nails Collection - Em construção 🚧
+	  🚀 Nails Collection - Concluído ✅
 </h1>
 
 <!-- ---------------------------------------------------------------------- -->
@@ -33,7 +33,7 @@ Nails Collection é uma API Full Stack desenvolvida em React Native, Java e MySQ
 ## 🎨 Layout
 
 <!-- AQUI VOCÊ PASSA O CAMINHO DA IMAGEM -->
-![Tela]()<br>
+![Tela](https://github.com/maridabrins/Nails-Collection/blob/main/thumbMobile.PNG)<br>
 <!-- ---------------------------------------------------------------------- -->
 
 <!-- MODELO DE COMO EXECUTAR O PROJETO -->
