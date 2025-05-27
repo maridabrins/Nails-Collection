@@ -102,14 +102,18 @@ Nails Collection é uma API Full Stack desenvolvida em React Native, Java e MySQ
 
 ## 📡 Rotas da API
 
-| Método HTTP | Endpoint                   | Descrição                                        |
-|-------------|----------------------------|--------------------------------------------------|
-| `GET`       | `/colecao`                 | Lista todos os esmaltes                         |
-| `GET`       | `/colecao/{id}`            | Busca esmalte por ID                            |
-| `GET`       | `/colecao/search?q=termo`  | Busca por nome, marca ou cor                    |
-| `POST`      | `/colecao/criar`           | Cria um novo esmalte                            |
-| `PUT`       | `/colecao/editar/{id}`     | Atualiza esmalte existente                      |
-| `DELETE`    | `/colecao/excluir/{id}`    | Deleta esmalte pelo ID                          |
+| Método HTTP | Endpoint                                                             | Descrição                                         |
+|-------------|----------------------------------------------------------------------|--------------------------------------------------|
+| `GET`       | `/eventos`                                                           | Lista todos os eventos                           |
+| `GET`       | `/eventos/{id}`                                                      | Busca evento por ID                              |
+| `POST`      | `/eventos`                                                           | Cria um novo evento                              |
+| `PUT`       | `/eventos/{id}`                                                      | Atualiza um evento existente                     |
+| `DELETE`    | `/eventos/{id}`                                                      | Exclui um evento por ID                          |
+| `POST`      | `/participantes`                                                     | Cadastra um novo participante                    |
+| `POST`      | `/participantes/{idParticipante}/inscrever/{idEvento}`              | Inscreve um participante em um evento            |
+| `DELETE`    | `/participantes/{idParticipante}/cancelar/{idEvento}`               | Cancela a inscrição de um participante no evento |
+| `GET`       | `/participantes/evento/{idEvento}/participantes`                    | Lista todos os participantes de um evento        |
+
 
 ## 📌 Observações
 
